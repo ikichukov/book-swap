@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="#">BOOK SWAP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li *ngIf="authenticatedUser" class="nav-item active">
+        <a class="nav-link" routerLink="/bookshelf">Bookshelf <span class="sr-only">(current)</span></a>
+      </li>
+      <li *ngIf="authenticatedUser" class="nav-item active">
+        <a class="nav-link" routerLink="/books/new">Add book <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+
+    <div class="my-2 my-lg-0">
+      <div *ngIf="!authenticatedUser" class="nav-item dropdown">
+        <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Log in
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://localhost:8080/login/facebook">
+            <button class="btn btn-lg btn-primary">Log in with Facebook</button>
+          </a>
+          <a class="dropdown-item" href="http://localhost:8080/login/github">
+            <button class="btn btn-lg btn-dark">Log in with Github</button>
+          </a>
+        </div>
+      </div>
+      <div *ngIf="authenticatedUser" class="nav-item dropdown">
+        <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{authenticatedUser.name}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://localhost:8080/logout">
+            <button class="btn btn-lg btn-primary">Log out</button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</nav>

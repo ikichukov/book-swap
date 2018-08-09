@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Add book in my bookshelf</h1>
+
+  <input #query type="text" />
+  <button (click)="search(query.value)">Search</button>
+
+  <div *ngIf="results">
+    <ul class="list-unstyled">
+      <li *ngFor="let result of results">
+        <span>{{result.title}}</span>
+        <button (click)="addBook(result)" class="btn btn-success btn-sm">Add</button>
+      </li>
+    </ul>
+  </div>
+
+</div>
